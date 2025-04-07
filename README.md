@@ -1,2 +1,2 @@
 # Poo
-Repositório de poo
+Repositório de poo da ifrn 
