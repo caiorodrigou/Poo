@@ -1,8 +1,12 @@
-# Adicione os arquivos ao staging
-git add .
+class triangulo:
+    def __init__(self):
+        self.b = 0
+        self.h = 0
 
-# Faça o commit com uma mensagem descritiva
-git commit -m "Sua mensagem de commit aqui"
-
-# Envie as alterações para o repositório remoto
-git push
+    def calc_area(self):
+        return (self.b * self.h) /2
+    
+caio = triangulo()
+caio.b = 10 
+caio.h = 20 
+print (caio.calc_area())
