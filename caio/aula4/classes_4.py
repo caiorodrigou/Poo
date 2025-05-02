@@ -22,6 +22,7 @@ class conta():
         self.nome = ""
         self.num_conta = 0
         self.saldo = 0
+
     def depositar(self):
         numero = int(input("qual o numero da sua conta? "))
         if numero != self.num_conta:
@@ -43,10 +44,41 @@ class conta():
                 self.saldo = self.saldo - valor_sacado 
                 return print (f"seu saldo agora é {self.saldo}")
 
-caio = conta()
-caio.nome = "caio"
-caio.num_conta =270808
-caio.saldo = 20
-caio.depositar()
-caio.sacar()
+#cinema
+class cinema():
+    def __init__(self):
+        self.dia = ""
+        self.horario = 0.0
+        self.ingresso = 0.0
+
+    def calc_inteira(self):
+        if self.dia in ("segunda", "terca", "quinta"):
+            self.ingresso = 16.00
+        elif self.dia == "quarta":
+            self.ingresso = 8.00
+        elif self.dia in ("sexta", "sabado", "domingo"):
+            self.ingresso = 20.00
+            
+        if self.horario >= 17.00 and self.horario <= 23.59 or self.horario == 0.00 and self.dia != "quarta":
+            self.ingresso = self.ingresso + (self.ingresso /2)
+
+        return print(f"o valor do ingresso é {self.ingresso}")
+    def calc_meia(self):
+        if self.dia in ("segunda", "terca", "quinta"):
+            self.ingresso = 8.00
+        elif self.dia == "quarta":
+            self.ingresso = 8.00
+        elif self.dia in ("sexta", "sabado", "domingo"):
+            self.ingresso = 10.00
+            
+        if self.horario >= 17.00 and self.horario <= 23.59 or self.horario == 0.00 and self.dia != "quarta":
+            self.ingresso = self.ingresso + (self.ingresso /2)
+
+        return print(f"o valor do ingresso é {self.ingresso}")
+
+caio = cinema()
+caio.dia = "quinta"
+caio.horario = 18.00
+caio.calc_inteira()
+caio.calc_meia()
 
