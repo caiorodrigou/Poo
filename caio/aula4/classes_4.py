@@ -1,3 +1,4 @@
+#triangulo
 class triangulo():
     def __init__(self):
         self.b = 0
@@ -6,6 +7,7 @@ class triangulo():
     def calc_area(self):
         return (self.b * self.h) /2
 
+#viagem
 class viagem():
     def __init__(self):
         self.distancia_km = 0
@@ -14,13 +16,14 @@ class viagem():
     def calc_velocidade(self):
         return self.distancia_km / (self.horas + (self.minutos / 60))
     
+#conta bancaria
 class conta():
     def __init__(self):
         self.nome = ""
         self.num_conta = 0
         self.saldo = 0
     def depositar(self):
-        numero = print(input("qual o numero da sua conta? "))
+        numero = int(input("qual o numero da sua conta? "))
         if numero != self.num_conta:
             return print("numero da conta esta errado")
         else:
@@ -29,7 +32,7 @@ class conta():
             return print (f"seu saldo agora é {self.saldo}")
     
     def sacar(self):
-        numero = print(input("qual o numero da sua conta? "))
+        numero = int(input("qual o numero da sua conta? "))
         if numero != self.num_conta:
             print("numero da conta esta errado")
         else:
@@ -44,6 +47,6 @@ caio = conta()
 caio.nome = "caio"
 caio.num_conta =270808
 caio.saldo = 20
-print (caio.depositar())
-print (caio.sacar())
+caio.depositar()
+caio.sacar()
 
