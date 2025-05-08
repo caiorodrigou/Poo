@@ -17,7 +17,7 @@ class circulo():
     def calc_circunferencia(self):
         return 2 * 3.14 * self.__raio
     
-class UI:
+#class UI:
     @staticmethod
     def main():
         b = circulo()
@@ -25,7 +25,7 @@ class UI:
         print(b.calc_area())  # Use the instance 'b' to call the method
         print(b.calc_circunferencia())  # Use the instance 'b' to call the method
 
-UI.main()
-        
+#UI.main()
+
 
         
