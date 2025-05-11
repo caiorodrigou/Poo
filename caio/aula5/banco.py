@@ -54,11 +54,17 @@ class conta():
 class UI():
     @staticmethod
     def main():
-        x = conta()
+        x = conta(nome,conta,saldo)
         print ("Bem vindo ao banco")
-        x.nome = (input("qual o seu nome? "))
-        x.num_conta = int(input("qual o numero da sua conta? "))
-        x.saldo = float(input("qual o seu saldo? "))
+
+        nome = (input("qual o seu nome? "))
+        num_conta = int(input("qual o numero da sua conta? "))
+        saldo = float(input("qual o seu saldo? "))
+
+        x.__nome = nome
+        x.__num_conta = num_conta
+        x.__saldo = saldo
+
         comando = 0
         comando = int(input("digite 1 para depositar ou 2 para sacar : "))
         if comando == 1:

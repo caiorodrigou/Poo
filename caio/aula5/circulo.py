@@ -1,6 +1,6 @@
 class circulo():
-    def __init__(self):
-        self.__raio = 0
+    def __init__(self,raio):
+        self.__raio = raio
 
     def set_raio(self, raio):
         if raio > 0 :
@@ -17,15 +17,16 @@ class circulo():
     def calc_circunferencia(self):
         return 2 * 3.14 * self.__raio
     
-#class UI:
+class UI:
     @staticmethod
     def main():
-        b = circulo()
-        b.set_raio(2)  # Use the instance 'b' to call the method
-        print(b.calc_area())  # Use the instance 'b' to call the method
-        print(b.calc_circunferencia())  # Use the instance 'b' to call the method
+        b = circulo(raio)
+        raio = int(input("qual o raio:"))
+        b.set_raio(raio)  
+        print(b.calc_area())  
+        print(b.calc_circunferencia())  
 
-#UI.main()
+UI.main()
 
 
         
