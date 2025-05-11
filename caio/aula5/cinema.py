@@ -1,5 +1,5 @@
 class cinema():
-    def __init__(self, dia = "", horario = 0.0,):
+    def __init__(self, dia, horario):
         self.__dia = dia
         self.__horario = horario
         self.__ingresso = 0
@@ -56,20 +56,15 @@ class cinema():
 class UI():
     @staticmethod
     def main():
-        x = cinema()
+        x = cinema("quinta",10.00)
         print ("Bem vindo ao cinema")
-
-        dia = (input("qual o dia da semana? "))
-        horario = float(input("qual o horario do filme? "))
-        x.__dia(dia)
-        x.__horario(horario)
 
         comando = 0
 
         comando = int(input("qual seu ingresso, digite 1 para inteira ou 2 para meia : "))
         if comando == 1:
-            x.calc_inteira()
+            print(x.calc_inteira())
         elif comando == 2:
-            x.calc_meia()
+            print(x.calc_meia())
 
 UI.main()

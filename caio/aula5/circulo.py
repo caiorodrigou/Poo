@@ -17,12 +17,11 @@ class circulo():
     def calc_circunferencia(self):
         return 2 * 3.14 * self.__raio
     
-class UI:
+class UI():
     @staticmethod
     def main():
-        b = circulo(raio)
         raio = int(input("qual o raio:"))
-        b.set_raio(raio)  
+        b = circulo(raio) 
         print(b.calc_area())  
         print(b.calc_circunferencia())  
 
