@@ -4,8 +4,7 @@ class carrinho():
         self.__cliente = cliente
         self.__data = data
         self.__itens = []
-        #self._cliente(cliente)
-        #self._data(data)
+        
 
     def get_cliente(self):
         return self.__cliente
@@ -52,9 +51,7 @@ class item():
         self.__produto = produto
         self.__quantidade = quantidade
         self.__preco = preco
-        #self._produto(produto)
-        #self._quantidade(quantidade)
-        #self._preco(preco)
+       
 
     def get_produto(self):
         return self.__produto
@@ -94,6 +91,8 @@ c = item("maça",3,2.00)
 a.inserir(b)
 a.inserir(c)
 a.remover(b)
-print(a.listar())
+print("itens:")
+for itens in a.listar():
+    print(itens)
 print(a)
 print(a.preco_total())
