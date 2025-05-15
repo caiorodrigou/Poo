@@ -1,8 +1,8 @@
 class Playlist():
-    def __init__(self,nome = "",descrição = "",musicas = []):
+    def __init__(self,nome ,descrição ):
         self.__nome = nome
         self.__descrição = descrição
-        self.__musicas = musicas
+        self.__musicas = []
     
     def get_nome(self):
         return self.__nome
@@ -22,15 +22,19 @@ class Playlist():
     def set_musicas(self,musicas):
         self.__musicas = musicas
 
+    def inserir_musica(self):
+        self.__musicas.append(musica)
+
+    def listar_musicas(self):
+        for i in range (len(self.__musicas)):
+            print(f" {self.__musicas[i].get_titulo()} - {self.__musicas[i].get_artista()} - {self.__musicas[i].get_album()}")
+    
     def __str__(self):
         return len(self.__musicas)
-    
-    def inserir(self):
-        self.__musicas.append(input)("digite o nome da música: ")
 
 
 class musica():
-    def __init__(self,titulo = "",artista = "",album = ""):
+    def __init__(self,titulo ,artista,album):
         self.__titulo = titulo
         self.__artista = artista
         self.__album = album
@@ -49,6 +53,6 @@ class musica():
         self.__album = album
 
     def __str__(self):
-        return (f"{self.__titulo} - {self.__artista} - {self.__album}")
+        return (f"{self.__titulo} - {self.__artista} - {self.__album}") 
     
     
