@@ -5,13 +5,16 @@ class UI:
 
     @staticmethod
     def menu():
+            print("")
             print("Cadastro de Cliente")
             print("1 - Inserir Cliente")
             print("2 - Listar Clientes")
             print("3 - Atualizar Cliente")
             print("4 - Excluir Cliente")
             print("5 - Sair")
+            print("")
             return int(input("Escolha uma opção: "))
+            
 
     @staticmethod
     def main():

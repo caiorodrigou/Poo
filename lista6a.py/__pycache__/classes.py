@@ -47,7 +47,7 @@ class Clientes:
     def listar(cls):
         cls.abrir()
         for cliente in cls.objetos:
-            return print(cliente)
+            print(cliente)
     
     @classmethod
     def listar_id (cls,id):
