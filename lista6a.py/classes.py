@@ -7,7 +7,7 @@ class Cliente:
         self.fone = fone
         
     def __str__(self):
-        return f'cliente: {self.nome}, id: {self.id}, email: {self.email}, fone: {self.fone}'
+        return f'id: {self.id}, cliente: {self.nome}, email: {self.email}, fone: {self.fone}'
     def set_id(self, id):
         if id <= 0:
             raise ValueError("ID inválido")
@@ -36,28 +36,30 @@ class Cliente:
 
 class Clientes:
     objetos = []
-    def __init__(self):
-        self.lista = []
     
-    def inserir(self, cliente):
-        self.abrir()
-        self.lista.append(cliente)
-        self.salvar()
-
-    def listar(self):
-        self.abrir()
-        for cliente in self.lista:
-            print(cliente)
-
-    def listar_id (self,id):
-        self.abrir()
-        for cliente in self.lista:
+    @classmethod
+    def inserir(cls, cliente):
+        cls.abrir()
+        cls.objetos.append(cliente)
+        cls.salvar()
+    
+    @classmethod
+    def listar(cls):
+        cls.abrir()
+        for cliente in cls.objetos:
+            return print(cliente)
+    
+    @classmethod
+    def listar_id (cls,id):
+        cls.abrir()
+        for cliente in cls.objetos:
             if cliente.get_id() == id:
                 print(cliente)
 
-    def atualizar(self, id):
-        self.abrir()
-        for cliente in self.lista:
+    @classmethod
+    def atualizar(cls, id):
+        cls.abrir()
+        for cliente in cls.objetos:
             if cliente.get_id() == id:
                 novo_nome = input("Digite o nome do cliente: ")              
                 novo_email = input("Digite o email do cliente: ")
@@ -67,28 +69,33 @@ class Clientes:
                 cliente.set_email(novo_email) 
                 cliente.set_fone(novo_fone)
 
-                self.salvar()
+                cls.salvar()
 
                 print("Cliente atualizado com sucesso!")
                 return
         print("Cliente não encontrado.")
-
-    def excluir(self,id):
-        self.abrir()
-        for cliente in self.lista:
+    
+    @classmethod
+    def excluir(cls,id):
+        cls.abrir()
+        for cliente in cls.objetos:
             if cliente.get_id() == id:
-                self.lista.remove(cliente)
-                self.salvar()
+                cls.objetos.remove(cliente)
+                cls.salvar()
                 print("cliente excluido com sucesso!")
         print("Cliente não encontrado.")
     
-    def abrir(self):
-        with open('objetos.json', 'r') as arquivo:
+    @classmethod
+    def abrir(cls):
+        cls.objetos = [] 
+        with open('objetos.json', mode='r') as arquivo:
             dados = json.load(arquivo)
-            self.lista = [Cliente(**cliente) for cliente in dados]
-
-    def salvar(self):
-        with open('objetos.json', 'w') as arquivo:
-            dados = [cliente.__dict__ for cliente in self.lista]
-            json.dump(dados, arquivo, indent=4)
+            for dic in dados: 
+                c = Cliente(dic["id"], dic["nome"], dic["email"], dic["fone"])
+                cls.objetos.append(c)
+    
+    @classmethod
+    def salvar(cls):
+        with open('objetos.json', mode ='w') as arquivo:
+            json.dump(cls.objetos, arquivo, default = vars)
 

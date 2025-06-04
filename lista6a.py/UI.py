@@ -35,25 +35,25 @@ class UI:
         nome = input("Digite o nome do cliente: ")
         email = input("Digite o email do cliente: ")
         fone = input("Digite o telefone do cliente: ")
-        novo_cliente = Cliente(id, nome, email, fone)
-        clientes.inserir(novo_cliente)
-        return print(f"o cliente: {novo_cliente.get_nome} foi adicionado com sucesso")
+        x = Cliente(id, nome, email, fone)
+        Clientes.inserir(x)
+        return print(f"o cliente: {x.get_nome} foi adicionado com sucesso")
    
     @staticmethod
     def listar_clientes():
-        return clientes.listar()
+        return Clientes.listar()
     
     @staticmethod
     def atualizar_cliente():
         UI.listar_clientes
         id = int(input("Digite o ID do cliente a ser atualizado: "))
-        return clientes.atualizar(id)
+        return Clientes.atualizar(id)
     
     @staticmethod
     def excluir_cliente():
         UI.listar_clientes
         id = int(input("Digite o ID do cliente a ser excluido: "))
-        return clientes.excluir(id)
+        return Clientes.excluir(id)
     
 
 pass
