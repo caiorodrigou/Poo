@@ -1,5 +1,17 @@
+from classes import Cliente, Clientes
+
 class UI:
     clientes = Clientes()
+
+    @staticmethod
+    def menu():
+            print("Cadastro de Cliente")
+            print("1 - Inserir Cliente")
+            print("2 - Listar Clientes")
+            print("3 - Atualizar Cliente")
+            print("4 - Excluir Cliente")
+            print("5 - Sair")
+            return int(input("Escolha uma opção: "))
 
     @staticmethod
     def main():
@@ -16,17 +28,6 @@ class UI:
                 UI.excluir_cliente()
             elif op == 5 :
                 print("Saindo do programa...")
-      
-        
-    @staticmethod
-    def menu():
-            print("Cadastro de Cliente")
-            print("1 - Inserir Cliente")
-            print("2 - Listar Clientes")
-            print("3 - Atualizar Cliente")
-            print("4 - Excluir Cliente")
-            print("5 - Sair")
-            return int(input("Escolha uma opção: "))
         
     @staticmethod
     def inserir_cliente():
@@ -34,24 +35,26 @@ class UI:
         nome = input("Digite o nome do cliente: ")
         email = input("Digite o email do cliente: ")
         fone = input("Digite o telefone do cliente: ")
-        cliente = Cliente(id, nome, email, fone)
-        return UI.clientes.inserir(cliente)
+        novo_cliente = Cliente(id, nome, email, fone)
+        clientes.inserir(novo_cliente)
+        return print(f"o cliente: {novo_cliente.get_nome} foi adicionado com sucesso")
    
     @staticmethod
     def listar_clientes():
-        return UI.clientes.listar()
+        return clientes.listar()
     
     @staticmethod
     def atualizar_cliente():
+        UI.listar_clientes
         id = int(input("Digite o ID do cliente a ser atualizado: "))
-        return UI.clientes.listar(id)
+        return clientes.atualizar(id)
     
     @staticmethod
     def excluir_cliente():
-        id = int(input("Digite o ID do cliente a ser atualizado: "))
-        return UI.clientes.listar(id)
+        UI.listar_clientes
+        id = int(input("Digite o ID do cliente a ser excluido: "))
+        return clientes.excluir(id)
     
 
-
-if __name__ == "__main__":
-    UI.main()
+pass
+UI.main()
