@@ -1,5 +1,5 @@
 from datetime import datetime
-class Venda:
+class Venda():
     def __init__(self,id,data,carrinho,total,id_cliente):
         self.id = id
         self.data = datetime

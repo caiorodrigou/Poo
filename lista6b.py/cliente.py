@@ -1,4 +1,4 @@
-class Cliente:
+class Cliente():
     def __init__(self, id, nome, email,fone):
         self.id = id
         self.nome = nome    

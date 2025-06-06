@@ -1,5 +1,5 @@
 from datetime import datetime
-class Venda:
+class Venda_item():
     def __init__(self,id,qtd,preco,id_venda,id_produto):
         self.id = id
         self.qtd = qtd
@@ -8,7 +8,7 @@ class Venda:
         self.id_produto = id_produto
     
     def __str__(self):
-        return f'id: {self.id}, data: {self.data}, carrinho: {self.carrinho}, total: {self.total}, id_cliente:{self.id_cliente}'
+        return f'id: {self.id}, quantidades: {self.qtd}, preço: {self.preco}, ID da venda: {self.id_venda}, ID do produto:{self.id_produto}'
 
     def set_id(self,id):
         if id <= 0:
